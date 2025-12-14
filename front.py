@@ -1,5 +1,5 @@
 import streamlit as st
-import requests  # добавлен импорт
+import requests 
 
 st.title("Property Details Form 🏡")
 st.markdown("Please fill in the details of the property:")
@@ -38,7 +38,6 @@ if st.button("✅ Predict"):
     try:
         response = requests.post("http://127.0.0.1:8000/predict", json=data)
         result = response.json()
-        # Исправлено: ожидаем ключ "price" (бэкенд теперь возвращает "price")
         st.success(f"Predicted price: ${result['price']:.2f}")
     except Exception as e:
         st.error(f"Error: {e}")
